@@ -7,9 +7,13 @@ function divide(n1, n2) { return n1 / n2 }
 
 let n1 = 0
 let n2 = 0
+let result = 0
 let operator = ""
 
 function operate(operator, n1, n2) {
+    n1 = Number(n1)
+    n2 = Number(n2)
+
     if (operator == "+") {
         return add(n1, n2)
     }
@@ -70,6 +74,8 @@ clearBtn.onclick = clearDisplay
 addBtn.addEventListener("click", () => {
     if (n1 != 0 && n2 != 0) {
         operator = "+"
+        result = operate(operator, n1, n2)
+        console.log(result)
         updateDisplay()
     }
 })
