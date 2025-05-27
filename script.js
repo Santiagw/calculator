@@ -80,6 +80,10 @@ addBtn.addEventListener("click", () => {
     }
 })
 
+equalsBtn.addEventListener("click", () =>{
+    operationDisplay.innerHTML = `<em>${result}</em>`;
+})
+
 calculatorContainer.append(
     operationDisplay,
     createNumberButton("1"),
