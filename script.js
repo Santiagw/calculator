@@ -61,8 +61,10 @@ const createNumberButton = (displayNumber) => {
     number.addEventListener("click", () => {
         if (n1 == 0) {
             n1 = displayNumber
-        } else {
+            console.log({ n1 })
+        } if (operator != "") {
             n2 = displayNumber
+            console.log({ n2 })
         }
         updateDisplay()
     })
@@ -72,15 +74,14 @@ const createNumberButton = (displayNumber) => {
 clearBtn.onclick = clearDisplay
 
 addBtn.addEventListener("click", () => {
-    if (n1 != 0 && n2 != 0) {
+    if (n1 != 0) {
         operator = "+"
-        result = operate(operator, n1, n2)
-        console.log(result)
         updateDisplay()
     }
 })
 
-equalsBtn.addEventListener("click", () =>{
+equalsBtn.addEventListener("click", () => {
+    //do the operations here after n1, n2 and operator have been selected
     operationDisplay.innerHTML = `<em>${result}</em>`;
 })
 
