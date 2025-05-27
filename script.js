@@ -26,6 +26,14 @@ function updateDisplay() {
     operationDisplay.innerHTML = `<p>${n1} <em>${operator}</em> ${n2}</p>`;
 }
 
+function clearDisplay() {
+    n1 = 0
+    n2 = 0
+    operator = ""
+    updateDisplay()
+
+}
+
 const addBtn = document.createElement("button");
 const subtractBtn = document.createElement("button");
 const multiplyBtn = document.createElement("button");
@@ -47,9 +55,9 @@ const createNumberButton = (displayNumber) => {
     const number = document.createElement("button");
     number.textContent = displayNumber;
     number.addEventListener("click", () => {
-        if(n1==0){
-        n1 = displayNumber
-        }else{
+        if (n1 == 0) {
+            n1 = displayNumber
+        } else {
             n2 = displayNumber
         }
         updateDisplay()
@@ -57,8 +65,10 @@ const createNumberButton = (displayNumber) => {
     return number;
 };
 
+clearBtn.onclick = clearDisplay
+
 addBtn.addEventListener("click", () => {
-    if(n1 != 0 && n2 != 0){
+    if (n1 != 0 && n2 != 0) {
         operator = "+"
         updateDisplay()
     }
@@ -78,7 +88,7 @@ calculatorContainer.append(
     createNumberButton("8"),
     createNumberButton("9"),
     multiplyBtn,
-    //   clearBtn,
+    clearBtn,
     createNumberButton("0"),
     equalsBtn,
     divideBtn
