@@ -62,9 +62,12 @@ const createNumberButton = (displayNumber) => {
         if (n1 == 0) {
             n1 = displayNumber
             console.log({ n1 })
+            updateDisplay()
         } if (operator != "") {
             n2 = displayNumber
             console.log({ n2 })
+            updateDisplay()
+
         }
         updateDisplay()
     })
@@ -81,7 +84,7 @@ addBtn.addEventListener("click", () => {
 })
 
 equalsBtn.addEventListener("click", () => {
-    //do the operations here after n1, n2 and operator have been selected
+    result = operate(operator, n1, n2)
     operationDisplay.innerHTML = `<em>${result}</em>`;
 })
 
