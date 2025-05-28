@@ -35,7 +35,6 @@ function clearDisplay() {
     n2 = 0
     operator = ""
     updateDisplay()
-
 }
 
 const addBtn = document.createElement("button");
@@ -68,10 +67,6 @@ const createNumberButton = (displayNumber) => {
             console.log({ n2 })
             updateDisplay()
 
-        }if(result > 0){
-            clearDisplay()
-            n1 = displayNumber
-            
         }
         updateDisplay()
     })
@@ -118,6 +113,7 @@ equalsBtn.addEventListener("click", () => {
         result = operate(operator, n1, n2)
         n1 = 0
         n2 = 0
+        clearDisplay()
         operationDisplay.innerHTML = `<em>${result}</em>`;
     }
 
