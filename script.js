@@ -68,6 +68,10 @@ const createNumberButton = (displayNumber) => {
             console.log({ n2 })
             updateDisplay()
 
+        }if(result > 0){
+            clearDisplay()
+            n1 = displayNumber
+            
         }
         updateDisplay()
     })
@@ -83,9 +87,40 @@ addBtn.addEventListener("click", () => {
     }
 })
 
+subtractBtn.addEventListener("click", () => {
+    if (n1 != 0) {
+        operator = "-"
+        updateDisplay()
+    }
+})
+
+multiplyBtn.addEventListener("click", () => {
+    if (n1 != 0) {
+        operator = "*"
+        updateDisplay()
+    }
+})
+
+divideBtn.addEventListener("click", () => {
+    if (n1 != 0) {
+        operator = "/"
+        updateDisplay()
+    }
+})
+
 equalsBtn.addEventListener("click", () => {
-    result = operate(operator, n1, n2)
-    operationDisplay.innerHTML = `<em>${result}</em>`;
+    if (operator == "/") {
+        if (n1 == 0 || n2 == 0) {
+            alert("You can not divide by zero")
+            clearDisplay()
+        }
+    } else {
+        result = operate(operator, n1, n2)
+        n1 = 0
+        n2 = 0
+        operationDisplay.innerHTML = `<em>${result}</em>`;
+    }
+
 })
 
 calculatorContainer.append(
