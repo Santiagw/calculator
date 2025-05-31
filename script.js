@@ -49,24 +49,27 @@ const clearBtn = document.createElement("button");
 addBtn.textContent = "+";
 subtractBtn.textContent = "-";
 multiplyBtn.textContent = "x";
-divideBtn.textContent = "/";
+divideBtn.textContent = "÷";
 clearBtn.textContent = "AC";
 
-addBtn.classList.add("operator")
-subtractBtn.classList.add("operator")
-multiplyBtn.classList.add("operator")
-divideBtn.classList.add("operator")
+clearBtn.classList.add("top")
+
+addBtn.id = "operator"
+subtractBtn.id = "operator"
+multiplyBtn.id = "operator"
+divideBtn.id = "operator"
 
 
 const equalsBtn = document.createElement("button");
 equalsBtn.textContent = "=";
-equalsBtn.classList.add("operator")
+equalsBtn.id = "operator"
 
 const operationDisplay = document.createElement("div");
 updateDisplay()
 
 const createNumberButton = (displayNumber) => {
     const number = document.createElement("button");
+    if(displayNumber == "+/-" ||displayNumber == "%") number.classList.add("top")
     number.textContent = displayNumber;
     number.addEventListener("click", () => {
         if (n1 == 0) {
