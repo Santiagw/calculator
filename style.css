@@ -39,6 +39,7 @@ button {
     padding: 20px;
     border-radius: 30px;
     width: 17%;
+    margin-top: 7% !important;
 }
 
 .display {
