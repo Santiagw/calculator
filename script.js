@@ -50,7 +50,7 @@ addBtn.textContent = "+";
 subtractBtn.textContent = "-";
 multiplyBtn.textContent = "x";
 divideBtn.textContent = "/";
-clearBtn.textContent = "C";
+clearBtn.textContent = "AC";
 
 addBtn.classList.add("operator")
 subtractBtn.classList.add("operator")
@@ -132,21 +132,25 @@ equalsBtn.addEventListener("click", () => {
 
 calculatorDisplay.appendChild(operationDisplay)
 calculatorButtons.append(
-    createNumberButton("1"),
-    createNumberButton("2"),
-    createNumberButton("3"),
-    addBtn,
-    createNumberButton("4"),
-    createNumberButton("5"),
-    createNumberButton("6"),
-    subtractBtn,
+    clearBtn,
+    createNumberButton("+/-"),
+    createNumberButton("%"),
+    divideBtn,
     createNumberButton("7"),
     createNumberButton("8"),
     createNumberButton("9"),
     multiplyBtn,
-    clearBtn,
+    createNumberButton("4"),
+    createNumberButton("5"),
+    createNumberButton("6"),
+    subtractBtn,
+    createNumberButton("1"),
+    createNumberButton("2"),
+    createNumberButton("3"),
+    addBtn,
+    createNumberButton("F"), //F for filler
     createNumberButton("0"),
+    createNumberButton("."),
     equalsBtn,
-    divideBtn
 );
 calculatorContainer.append()
