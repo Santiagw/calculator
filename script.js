@@ -1,4 +1,6 @@
 const calculatorContainer = document.querySelector("#calculator")
+const calculatorDisplay = document.querySelector(".display")
+const calculatorButtons = document.querySelector(".buttons")
 
 function add(n1, n2) { return n1 + n2 }
 function substract(n1, n2) { return n1 - n2 }
@@ -37,6 +39,7 @@ function clearDisplay() {
     updateDisplay()
 }
 
+
 const addBtn = document.createElement("button");
 const subtractBtn = document.createElement("button");
 const multiplyBtn = document.createElement("button");
@@ -49,10 +52,18 @@ multiplyBtn.textContent = "x";
 divideBtn.textContent = "/";
 clearBtn.textContent = "C";
 
+addBtn.classList.add("operator")
+subtractBtn.classList.add("operator")
+multiplyBtn.classList.add("operator")
+divideBtn.classList.add("operator")
+
+
 const equalsBtn = document.createElement("button");
 equalsBtn.textContent = "=";
+equalsBtn.classList.add("operator")
 
 const operationDisplay = document.createElement("div");
+updateDisplay()
 
 const createNumberButton = (displayNumber) => {
     const number = document.createElement("button");
@@ -119,8 +130,8 @@ equalsBtn.addEventListener("click", () => {
 
 })
 
-calculatorContainer.append(
-    operationDisplay,
+calculatorDisplay.appendChild(operationDisplay)
+calculatorButtons.append(
     createNumberButton("1"),
     createNumberButton("2"),
     createNumberButton("3"),
@@ -138,3 +149,4 @@ calculatorContainer.append(
     equalsBtn,
     divideBtn
 );
+calculatorContainer.append()
