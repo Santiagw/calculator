@@ -8,7 +8,7 @@ function multiply(n1, n2) { return n1 * n2 }
 function divide(n1, n2) { return n1 / n2 }
 
 let n1 = 0
-let n2 = 0
+let n2 = ""
 let result = 0
 let operator = ""
 
@@ -31,9 +31,8 @@ function operate(operator, n1, n2) {
 function updateDisplay() {
     if (operator == "" && n2 == 0) {
         operationDisplay.innerHTML = `<p>${n1}</p>`;
-    } else if (n2 == 0) {
+    }  else if (n2 == "") {
         operationDisplay.innerHTML = `<p>${n1} <em>${operator}</em></p>`;
-
     }
     else operationDisplay.innerHTML = `<p>${n1} <em>${operator}</em> ${n2}</p>`;
 }
@@ -80,11 +79,9 @@ const createNumberButton = (displayNumber) => {
     number.addEventListener("click", () => {
         if (n1 == 0) {
             n1 = displayNumber
-            console.log({ n1 })
             updateDisplay()
         } if (operator != "") {
             n2 = displayNumber
-            console.log({ n2 })
             updateDisplay()
 
         }
