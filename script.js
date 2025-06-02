@@ -131,6 +131,7 @@ equalsBtn.addEventListener("click", () => {
         n1 = 0
         n2 = 0
         clearDisplay()
+        n1 = result
         operationDisplay.innerHTML = `<em>${result}</em>`;
     }
 
