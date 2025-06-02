@@ -29,7 +29,13 @@ function operate(operator, n1, n2) {
 }
 
 function updateDisplay() {
-    operationDisplay.innerHTML = `<p>${n1} <em>${operator}</em> ${n2}</p>`;
+    if (operator == "" && n2 == 0) {
+        operationDisplay.innerHTML = `<p>${n1}</p>`;
+    } else if (n2 == 0) {
+        operationDisplay.innerHTML = `<p>${n1} <em>${operator}</em></p>`;
+
+    }
+    else operationDisplay.innerHTML = `<p>${n1} <em>${operator}</em> ${n2}</p>`;
 }
 
 function clearDisplay() {
@@ -69,7 +75,7 @@ updateDisplay()
 
 const createNumberButton = (displayNumber) => {
     const number = document.createElement("button");
-    if(displayNumber == "+/-" ||displayNumber == "%") number.classList.add("top")
+    if (displayNumber == "+/-" || displayNumber == "%") number.classList.add("top")
     number.textContent = displayNumber;
     number.addEventListener("click", () => {
         if (n1 == 0) {
@@ -151,7 +157,7 @@ calculatorButtons.append(
     createNumberButton("2"),
     createNumberButton("3"),
     addBtn,
-    createNumberButton("F"), //F for filler
+    createNumberButton("F"),
     createNumberButton("0"),
     createNumberButton("."),
     equalsBtn,
