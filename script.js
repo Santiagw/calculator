@@ -31,8 +31,10 @@ function operate(operator, n1, n2) {
 function updateDisplay() {
     if (operator == "" && n2 == 0) {
         operationDisplay.innerHTML = `<p>${n1}</p>`;
-    }  else if (n2 == "") {
+    } else if (n2 == "") {
         operationDisplay.innerHTML = `<p>${n1} <em>${operator}</em></p>`;
+    } else if (operator == "") {
+        operationDisplay.innerHTML = `<p>${n1}</p>`;
     }
     else operationDisplay.innerHTML = `<p>${n1} <em>${operator}</em> ${n2}</p>`;
 }
@@ -44,18 +46,19 @@ function clearDisplay() {
     updateDisplay()
 }
 
-
 const addBtn = document.createElement("button");
 const subtractBtn = document.createElement("button");
 const multiplyBtn = document.createElement("button");
 const divideBtn = document.createElement("button");
 const clearBtn = document.createElement("button");
+const delBtn = document.createElement("button");
 
 addBtn.textContent = "+";
 subtractBtn.textContent = "-";
 multiplyBtn.textContent = "x";
 divideBtn.textContent = "÷";
 clearBtn.textContent = "AC";
+delBtn.textContent = "DEL";
 
 clearBtn.classList.add("top")
 
@@ -137,6 +140,13 @@ equalsBtn.addEventListener("click", () => {
 
 })
 
+delBtn.addEventListener("click", function () {
+    if (n1 != 0) {
+        n1 = 0
+        updateDisplay()
+    }
+})
+
 calculatorDisplay.appendChild(operationDisplay)
 calculatorButtons.append(
     clearBtn,
@@ -155,7 +165,7 @@ calculatorButtons.append(
     createNumberButton("2"),
     createNumberButton("3"),
     addBtn,
-    createNumberButton("F"),
+    delBtn,
     createNumberButton("0"),
     createNumberButton("."),
     equalsBtn,
