@@ -33,9 +33,11 @@ function updateDisplay() {
         operationDisplay.innerHTML = `<p>${n1}</p>`;
     } else if (n2 == "") {
         operationDisplay.innerHTML = `<p>${n1} <em>${operator}</em></p>`;
-    } else if (operator == "") {
-        operationDisplay.innerHTML = `<p>${n1}</p>`;
-    } else if (operator != "") {
+    }
+    //  else if (n1 != 0) {
+    //     operationDisplay.innerHTML = `<p>${n1}</p>`;
+    // } 
+    else if (operator == "") {
         operationDisplay.innerHTML = `<p>${n1}</p>`;
     }
     else operationDisplay.innerHTML = `<p>${n1} <em>${operator}</em> ${n2}</p>`;
@@ -149,6 +151,7 @@ delBtn.addEventListener("click", function () {
     } else if (n1 != 0) {
         n1 = 0
         updateDisplay()
+        clearDisplay()
     }
 })
 
