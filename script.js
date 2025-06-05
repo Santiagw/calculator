@@ -35,6 +35,8 @@ function updateDisplay() {
         operationDisplay.innerHTML = `<p>${n1} <em>${operator}</em></p>`;
     } else if (operator == "") {
         operationDisplay.innerHTML = `<p>${n1}</p>`;
+    } else if (operator != "") {
+        operationDisplay.innerHTML = `<p>${n1}</p>`;
     }
     else operationDisplay.innerHTML = `<p>${n1} <em>${operator}</em> ${n2}</p>`;
 }
@@ -141,7 +143,10 @@ equalsBtn.addEventListener("click", () => {
 })
 
 delBtn.addEventListener("click", function () {
-    if (n1 != 0) {
+    if (operator != "" && n1 != 0) {
+        operator = ""
+        updateDisplay()
+    } else if (n1 != 0) {
         n1 = 0
         updateDisplay()
     }
